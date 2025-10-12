@@ -224,7 +224,6 @@ const user_delete = async (req, res) => {
         });
     }
 };
-
 // UPDATE USER ROLE (Admin only)
 const user_updateRole = async (req, res) => {
     const { id } = req.params; // Get userId from URL parameters
@@ -287,7 +286,6 @@ const user_updateRole = async (req, res) => {
         });
     }
 };
-
 // UPDATE NEWSLETTER PREFERENCE
 const user_updateNewsletter = async (req, res) => {
     const { id } = req.params;
@@ -324,7 +322,6 @@ const user_updateNewsletter = async (req, res) => {
         });
     }
 };
-
 // APPROVE ADMIN REQUEST (Admin only)
 const user_approveAdmin = async (req, res) => {
     const { id } = req.params;
@@ -361,7 +358,6 @@ const user_approveAdmin = async (req, res) => {
         });
     }
 };
-
 // DENY ADMIN REQUEST (Admin only)
 const user_denyAdmin = async (req, res) => {
     const { id } = req.params;
@@ -398,7 +394,6 @@ const user_denyAdmin = async (req, res) => {
         });
     }
 };
-
 // GET PENDING ADMIN REQUESTS (Admin only)
 const user_getPendingAdminRequests = async (req, res) => {
     try {

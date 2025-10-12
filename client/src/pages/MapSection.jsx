@@ -33,6 +33,10 @@ const PROVIDERS = [
     { name: "Baidu", color: "#2830E1", logoKey: "Baidu", aliases: ["baidu", "apollogo"] },
     { name: "Pony.ai", color: "#97DBE5", logoKey: "Ponyai", aliases: ["ponyai"] },
     { name: "WeRide", color: "#00C8C8", logoKey: "WeRide", aliases: ["weride"] },
+    { name: "Lyft", color: "#FF00BF", logoKey: "lyft", aliases: ["Lyft"] },
+    { name: "Uber", color: "#010202", logoKey: "Uber", aliases: ["uber"] },
+    { name: "Lucid", color: "#000000", logoKey: "Lucid", aliases: ["lucid"] },
+    { name: "May Mobility", color: "#369141", logoKey: "May", aliases: ["may", "may mobility"] },
 ];
 const getDeterministicColor = (input) => {
     const str = String(input || "");
@@ -586,6 +590,10 @@ export const MapSection = () => {
                                                     <div className='font-semibold text-purple-900 mb-2'>{area.providerName}</div>
                                                     {area.data && (
                                                         <div className='text-sm text-gray-600'>
+                                                            City: {area.city}
+                                                            {", "}
+                                                            {area.country}
+                                                            <br />
                                                             Area: {formatAreaForDisplay(calculateArea(area.data))}
                                                         </div>
                                                     )}
@@ -653,6 +661,10 @@ export const MapSection = () => {
                                                                 </div>
                                                                 {layer.data && (
                                                                     <div className='text-sm text-gray-600'>
+                                                                        City: {layer.city}
+                                                                        {", "}
+                                                                        {layer.country}
+                                                                        <br />
                                                                         Area: {formatAreaForDisplay(calculateArea(layer.data))}
                                                                     </div>
                                                                 )}
@@ -852,6 +864,9 @@ export const MapSection = () => {
                                                         <option value='Remote-assist' className='text-yellow-500'>
                                                             Remote-assist
                                                         </option>
+                                                        <option value='Undefined' className='text-gray-400'>
+                                                            Undefined
+                                                        </option>
                                                     </select>
                                                 ) : (
                                                     <span className={getOperationalModelStyle(z.operational_model)}>
@@ -882,6 +897,9 @@ export const MapSection = () => {
                                                         <option value='Testing' className='text-blue-400'>
                                                             Testing
                                                         </option>
+                                                        <option value='Undefined' className='text-gray-400'>
+                                                            Undefined
+                                                        </option>
                                                     </select>
                                                 ) : (
                                                     <span className={getServiceStatusStyle(z.service_status)}>{z.service_status}</span>
@@ -895,6 +913,8 @@ export const MapSection = () => {
                                                         onChange={(e) => setEditDrafts({ ...editDrafts, fleet_size: e.target.value })}
                                                         className='w-full px-2 py-1 border rounded text-xs sm:text-sm'
                                                     />
+                                                ) : z.fleet_size === 0 || z.fleet_size === "" ? (
+                                                    "Undefined"
                                                 ) : (
                                                     z.fleet_size
                                                 )}

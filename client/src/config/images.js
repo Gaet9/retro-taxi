@@ -28,6 +28,10 @@ export const IMAGES = {
         Ponyai: `${S3_BASE_URL}/logos/ponyai.svg`,
         WeRide: `${S3_BASE_URL}/logos/weride.svg`,
         Zoox: `${S3_BASE_URL}/logos/zoox.svg`,
+        Lyft: `${S3_BASE_URL}/logos/lyft.svg`,
+        Uber: `${S3_BASE_URL}/logos/uber.svg`,
+        Lucid: `${S3_BASE_URL}/logos/lucid.svg`,
+        May: `${S3_BASE_URL}/logos/may.svg`,
     },
 };
 
