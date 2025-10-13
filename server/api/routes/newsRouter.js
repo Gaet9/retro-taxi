@@ -6,9 +6,8 @@ const verifyAdmin = require("../middlewares/admin-middleware");
 
 const router = express.Router();
 
-// public
+// admin only
 router.post("/send", verifyToken, verifyAdmin, newsQueries.send_newsletter);
-// protected - requires authentication
 router.post("/generate", verifyToken, verifyAdmin, newsQueries.create_newsletter);
 
 module.exports = router;
